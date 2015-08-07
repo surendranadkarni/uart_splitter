@@ -140,17 +140,8 @@ int main(int argc, char *argv[])
         {
             rx_phy_buf[n] = 0;   /* always put a "null" at the end of a string! */
 
-            for(i=0; i < n; i++)
-            {
-                if(rx_phy_buf[i] < 32)  /* replace unreadable control-codes by dots */
-                {
-                printf("unreadable %x\n", rx_phy_buf[i]);
-                rx_phy_buf[i] = '.';
-                
-                }
-            }
 
-            printf("received %i bytes: %s\n", n, (char *)rx_phy_buf);
+            printf("received %i bytes:\n", n);
             
             /*send data to sniffer*/
             for(i = 0; i < sniffer_virtual_port_count; i++)
